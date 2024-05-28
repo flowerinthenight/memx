@@ -10,6 +10,7 @@ import (
 
 // GetMemoryUsage returns the calling process' internal + shared
 // memory usage in kB. Linux-specific as it reads /proc/.
+// Ref: https://en.wikipedia.org/wiki/Proportional_set_size
 func GetMemoryUsage() (uint64, error) {
 	f, err := os.Open(fmt.Sprintf("/proc/%d/smaps", os.Getpid()))
 	if err != nil {
