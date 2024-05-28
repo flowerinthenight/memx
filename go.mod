@@ -1,3 +1,3 @@
 module github.com/flowerinthenight/memx
 
-go 1.22.3
+go 1.20
