@@ -18,7 +18,7 @@ func GetMemoryUsage() (uint64, error) {
 	}
 
 	defer f.Close()
-	ret := uint64(0)
+	var mem uint64
 	r := bufio.NewScanner(f)
 	for r.Scan() {
 		line := r.Bytes()
@@ -34,7 +34,7 @@ func GetMemoryUsage() (uint64, error) {
 		}
 
 		if strings.ToLower(unit) == "kb" {
-			ret += size
+			mem += size
 		}
 	}
 
@@ -42,5 +42,5 @@ func GetMemoryUsage() (uint64, error) {
 		return 0, err
 	}
 
-	return ret, nil
+	return mem, nil
 }
