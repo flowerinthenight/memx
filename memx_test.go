@@ -11,4 +11,6 @@ func Test_GetMemoryUsage(t *testing.T) {
 	if v == 0 {
 		t.Fatalf("Expected non-zero, got %v.", v)
 	}
+
+	t.Logf("Mem usage: %v kB", v)
 }
